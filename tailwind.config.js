@@ -1,4 +1,5 @@
 import { nextui } from "@nextui-org/react";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -8,6 +9,11 @@ export default {
   ],
   theme: {
     extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", ...defaultTheme.fontFamily.serif],
+      },
+    },
   },
   plugins: [nextui()],
 };
