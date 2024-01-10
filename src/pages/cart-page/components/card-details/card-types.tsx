@@ -1,6 +1,10 @@
 import { Button } from "@nextui-org/react";
 
-export const CardTypes = () => {
+type CardTypesProps = {
+  disabled?: boolean;
+};
+
+export const CardTypes = ({ disabled }: CardTypesProps) => {
   const types = ["mastercard", "visa", "ru-pay"];
 
   return (
@@ -15,7 +19,12 @@ export const CardTypes = () => {
             {item}
           </div>
         ))}
-        <Button className="h-[55px] min-w-fit rounded-[5px] bg-[#D9D9D9]/20 p-0 font-bold text-white">
+        <Button
+          disabled={disabled}
+          disableRipple={disabled}
+          disableAnimation={disabled}
+          className="h-[55px] min-w-fit rounded-[5px] bg-[#D9D9D9]/20 p-0 font-bold text-white"
+        >
           See All
         </Button>
       </div>

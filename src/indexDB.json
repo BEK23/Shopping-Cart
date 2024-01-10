@@ -1,0 +1,29 @@
+{
+  "cartItems": [
+    {
+      "id": 0,
+      "name": "Italy Pizza",
+      "description": "Extra cheese and toping",
+      "img": "https://www.southernliving.com/thmb/3x3cJaiOvQ8-3YxtMQX0vvh1hQw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2652401_QFSSL_SupremePizza_00072-d910a935ba7d448e8c7545a963ed7101.jpg",
+      "price": 15,
+      "count": 1
+    },
+    {
+      "id": 1,
+      "name": "Combo Plate",
+      "description": "Extra cheese and toping",
+      "img": "https://imageproxy.wolt.com/menu/menu-images/5f7ac610bbac710f84cffdf5/ff84c4a8-6133-11eb-8abd-be746083ec98_image_6487327.jpeg",
+      "price": 27,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "name": "Spanish Rice",
+      "description": "Extra garllic",
+      "img": "https://hips.hearstapps.com/vidthumb/images/delish-spanish-rice-still003-1544641098.jpg",
+      "price": 7,
+      "count": 1
+    }
+  ],
+  "shipping": 4
+}

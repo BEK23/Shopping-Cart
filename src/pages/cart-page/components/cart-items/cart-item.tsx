@@ -4,6 +4,7 @@ import { Card } from "@nextui-org/card";
 import { CardBody, Image } from "@nextui-org/react";
 
 import { Title } from "@/components/title";
+import { useCartStore } from "@/store/cart.store";
 import { ICartItem } from "@/types/cart.interface";
 
 interface CartItemPops {
@@ -11,6 +12,10 @@ interface CartItemPops {
 }
 
 export const CartItem = ({ item }: CartItemPops) => {
+  const increaseCartCount = useCartStore((state) => state.increase);
+  const decreaseCartCount = useCartStore((state) => state.decrease);
+  const deleteItem = useCartStore((state) => state.deleteItem);
+
   return (
     <Card className="shadow-[0px_1px_4px_0px_#00000025]">
       <CardBody className="flex-row items-center justify-between py-[9px] pl-2.5 pr-5">
@@ -35,14 +40,24 @@ export const CartItem = ({ item }: CartItemPops) => {
         <div className="flex gap-1.5 text-[22px]">
           {item.count}
           <div className="space-y-0.5">
-            <img src={UpFilledIcon} alt="up" className="cursor-pointer" />
+            <img
+              src={UpFilledIcon}
+              alt="up"
+              className="cursor-pointer"
+              onClick={() => increaseCartCount(item.id)}
+            />
             <div className="rotate-180">
-              <img src={UpFilledIcon} alt="down" className="cursor-pointer" />
+              <img
+                src={UpFilledIcon}
+                alt="down"
+                className="cursor-pointer"
+                onClick={() => decreaseCartCount(item.id)}
+              />
             </div>
           </div>
         </div>
         <div className="font-medium">${item.count * item.price}</div>
-        <img src={TrashIcon} alt="delete" />
+        <img src={TrashIcon} alt="delete" onClick={() => deleteItem(item.id)} />
       </CardBody>
     </Card>
   );
