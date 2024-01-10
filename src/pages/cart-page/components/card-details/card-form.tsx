@@ -32,7 +32,7 @@ export const CardForm = ({ disabled }: CardFormProps) => {
           color="success"
           className="flex h-14 justify-between py-0.5 text-base text-white"
         >
-          ${subtotal + shippingPrice}
+          ${subtotal ? subtotal + shippingPrice : 0}
           <div className="flex items-center gap-1">
             Checkout <img src={RightIcon} alt="right" />
           </div>

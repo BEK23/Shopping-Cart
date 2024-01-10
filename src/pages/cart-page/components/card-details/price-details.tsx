@@ -29,7 +29,7 @@ export const PriceDetails = () => {
       </div>
       <div className="flex justify-between">
         <div>Total (Tax incl.)</div>
-        <div>${subtotal + shippingPrice}</div>
+        <div>${subtotal ? subtotal + shippingPrice : 0}</div>
       </div>
     </div>
   );
