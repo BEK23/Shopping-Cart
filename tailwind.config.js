@@ -11,6 +11,8 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", ...defaultTheme.fontFamily.serif],
+        "open-sans": ["Open Sans", ...defaultTheme.fontFamily.serif],
+        nunito: ["Nunito", ...defaultTheme.fontFamily.serif],
       },
       spacing: {
         12.5: "3.125rem",

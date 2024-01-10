@@ -9,7 +9,7 @@ type CardTypesProps = {
 export const CardTypes = ({ disabled }: CardTypesProps) => {
   return (
     <div className="mb-7">
-      <div className="mb-3.5 text-base">Card type</div>
+      <div className="mb-3.5 font-nunito text-base">Card type</div>
       <div className="grid grid-cols-4 gap-4">
         {cardTypes.map((item) => (
           <div
@@ -23,7 +23,7 @@ export const CardTypes = ({ disabled }: CardTypesProps) => {
           disabled={disabled}
           disableRipple={disabled}
           disableAnimation={disabled}
-          className="h-[55px] min-w-fit rounded-[5px] bg-[#D9D9D9]/20 p-0 font-bold text-white"
+          className="h-[55px] min-w-fit rounded-[5px] bg-[#D9D9D9]/20 p-0 font-open-sans font-bold text-white"
         >
           See All
         </Button>
