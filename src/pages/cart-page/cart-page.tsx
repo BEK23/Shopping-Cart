@@ -13,6 +13,7 @@ export default function CartPage() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const cartItems = useCartStore((state) => state.cartItems);
+  const cartItemsCount = cartItems.length;
 
   return (
     <>
@@ -22,7 +23,9 @@ export default function CartPage() {
           <div className="flex justify-between">
             <Title
               title="Shopping cart"
-              subtitle={`You have ${cartItems.length} item in your cart`}
+              subtitle={`You have ${
+                cartItemsCount ? cartItemsCount : "no"
+              } item${cartItemsCount !== 1 ? "s" : ""} in your cart`}
               className="pb-7"
             />
             <Button
