@@ -1,7 +1,11 @@
 import { Input, InputProps } from "@nextui-org/react";
 import { useFormContext } from "react-hook-form";
 
-export const BillingFormFields = () => {
+type BillingFromFields = {
+  disabled?: boolean;
+};
+
+export const BillingFormFields = ({ disabled }: BillingFromFields) => {
   const inputProps: InputProps = {
     labelPlacement: "outside",
     classNames: {
@@ -9,7 +13,7 @@ export const BillingFormFields = () => {
       innerWrapper: "bg-transparent",
       inputWrapper: [
         "bg-[#6268c6]",
-        "hover:!bg-[#6268c6]",
+        "data-[hover]:!bg-[#6268c6] data-[hover]:focus-within:!bg-white/15",
         "focus-within:!bg-white/15",
         "focus-within:!ring-0",
         "focus-within:!ring-offset-0",
@@ -23,12 +27,14 @@ export const BillingFormFields = () => {
   return (
     <>
       <Input
+        disabled={disabled}
         {...inputProps}
         {...register("card_name")}
         placeholder="Name"
         label="Name on card"
       />
       <Input
+        disabled={disabled}
         {...inputProps}
         {...register("card_number")}
         placeholder="1111 2222 3333 4444"
@@ -36,12 +42,14 @@ export const BillingFormFields = () => {
       />
       <div className="flex gap-2">
         <Input
+          disabled={disabled}
           {...inputProps}
           {...register("exp_date")}
           placeholder="mm/yy"
           label="Expiration date"
         />
         <Input
+          disabled={disabled}
           {...inputProps}
           {...register("cvv")}
           placeholder="123"

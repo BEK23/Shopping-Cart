@@ -21,7 +21,7 @@ export const CardForm = ({ disabled }: CardFormProps) => {
       <form className="flex grow flex-col justify-between gap-2.5">
         <Divider className="mb-1 mt-2 bg-[#5f65c3]" />
 
-        <BillingFormFields />
+        <BillingFormFields disabled={disabled} />
 
         <PriceDetails />
 
