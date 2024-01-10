@@ -29,7 +29,7 @@
   },
   "include": [
     "src",
-    "custom.d.ts"
+    "custom.d.tsx"
   ],
   "references": [
     {
