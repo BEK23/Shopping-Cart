@@ -19,7 +19,7 @@ export const CardDetails = () => {
           !subtotal && "opacity-70",
         ),
         header: "flex justify-between text-[22px] font-semibold p-0",
-        body: "p-0",
+        body: "p-0 no-scrollbar",
       }}
     >
       <CardHeader>

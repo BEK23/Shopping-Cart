@@ -14,6 +14,7 @@ type CartActionType = {
   decrease: (id: number) => void;
   deleteItem: (id: number) => void;
   setSubtotal: (value: number) => void;
+  clear: () => void;
 };
 
 const initialState: CartStateType = {
@@ -45,5 +46,8 @@ export const useCartStore = create<CartStateType & CartActionType>()((set) => ({
   },
   setSubtotal: (subtotal) => {
     set({ subtotal });
+  },
+  clear: () => {
+    set({ cartItems: [] });
   },
 }));

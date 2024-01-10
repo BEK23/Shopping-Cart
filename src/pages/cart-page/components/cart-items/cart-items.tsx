@@ -11,7 +11,7 @@ export const CartItems = () => {
         {cartItems.length > 0 ? (
           cartItems.map((item) => <CartItem key={item.id} item={item} />)
         ) : (
-          <div className="my-36 text-center text-3xl font-medium">
+          <div className="col-span-full my-36 text-center text-3xl font-medium">
             Cart is empty
             <br />
             <br />

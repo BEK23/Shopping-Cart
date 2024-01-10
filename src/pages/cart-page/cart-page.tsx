@@ -1,5 +1,6 @@
 import RightIcon from "@assets/right-icon.svg";
 import { Button, Modal, ModalContent, useDisclosure } from "@nextui-org/react";
+import { useEffect } from "react";
 
 import { Title } from "@/components/title";
 import { cn } from "@/lib/utils";
@@ -10,9 +11,15 @@ import { CartItems } from "./components/cart-items";
 import { Header } from "./components/header";
 
 export default function CartPage() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   const cartItems = useCartStore((state) => state.cartItems);
+  const subtotal = useCartStore((state) => state.subtotal);
+  const cartItemsCount = cartItems.length;
+
+  useEffect(() => {
+    if (!cartItemsCount) onClose();
+  }, [cartItemsCount, onClose]);
 
   return (
     <>
@@ -22,12 +29,20 @@ export default function CartPage() {
           <div className="flex justify-between">
             <Title
               title="Shopping cart"
-              subtitle={`You have ${cartItems.length} item in your cart`}
+              subtitle={`You have ${
+                cartItemsCount ? cartItemsCount : "no"
+              } item${cartItemsCount !== 1 ? "s" : ""} in your cart`}
               className="pb-7"
             />
             <Button
+              disabled={!subtotal}
+              disableAnimation={!subtotal}
+              disableRipple={!subtotal}
               color="success"
-              className="flex gap-1 text-white lg:hidden"
+              className={cn(
+                "flex gap-1 text-white lg:hidden transition-opacity",
+                !subtotal && "opacity-0",
+              )}
               onClick={onOpen}
             >
               Continue
