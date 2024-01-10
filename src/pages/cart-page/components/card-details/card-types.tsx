@@ -4,7 +4,7 @@ export const CardTypes = () => {
   const types = ["mastercard", "visa", "ru-pay"];
 
   return (
-    <>
+    <div className="mb-7">
       <div className="mb-3.5 text-base">Card type</div>
       <div className="grid grid-cols-4 gap-4">
         {types.map((item) => (
@@ -19,6 +19,6 @@ export const CardTypes = () => {
           See All
         </Button>
       </div>
-    </>
+    </div>
   );
 };
