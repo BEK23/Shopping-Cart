@@ -6,7 +6,7 @@ export const CartItems = () => {
   const cartItems = useCartStore((state) => state.cartItems);
 
   return (
-    <div className="space-y-6">
+    <div className="no-scrollbar h-full space-y-6 overflow-auto">
       {cartItems.length > 0 ? (
         cartItems.map((item) => <CartItem key={item.id} item={item} />)
       ) : (

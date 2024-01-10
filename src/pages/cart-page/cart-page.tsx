@@ -10,7 +10,7 @@ export default function CartPage() {
 
   return (
     <div className="flex h-full w-full justify-between gap-unit-13">
-      <div className="grow">
+      <div className="grow overflow-hidden">
         <Header />
         <Title
           title="Shopping cart"
