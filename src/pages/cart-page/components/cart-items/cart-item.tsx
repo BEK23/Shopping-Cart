@@ -1,9 +1,9 @@
-import TrashIcon from "@assets/trash-icon.svg";
 import UpFilledIcon from "@assets/up-filled-icon.svg";
 import { Card } from "@nextui-org/card";
 import { CardBody, Image } from "@nextui-org/react";
 
 import { Title } from "@/components/title";
+import { CartItemDelete } from "@/pages/cart-page/components/cart-items/cart-item-delete";
 import { useCartStore } from "@/store/cart.store";
 import { ICartItem } from "@/types/cart.interface";
 
@@ -14,7 +14,6 @@ interface CartItemPops {
 export const CartItem = ({ item }: CartItemPops) => {
   const increaseCartCount = useCartStore((state) => state.increase);
   const decreaseCartCount = useCartStore((state) => state.decrease);
-  const deleteItem = useCartStore((state) => state.deleteItem);
 
   return (
     <Card className="shadow-[0px_1px_4px_0px_#00000025]">
@@ -62,12 +61,7 @@ export const CartItem = ({ item }: CartItemPops) => {
           <div className="text-lg font-medium lg:text-xl">
             ${item.count * item.price}
           </div>
-          <img
-            src={TrashIcon}
-            alt="delete"
-            onClick={() => deleteItem(item.id)}
-            className="cursor-pointer"
-          />
+          <CartItemDelete id={item.id} />
         </div>
       </CardBody>
     </Card>
