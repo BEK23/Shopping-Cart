@@ -1,6 +1,8 @@
 import { Input, InputProps } from "@nextui-org/react";
 import { useFormContext } from "react-hook-form";
 
+import { IBilling } from "@/types/billing.interface";
+
 type BillingFromFields = {
   disabled?: boolean;
 };
@@ -19,10 +21,14 @@ export const BillingFormFields = ({ disabled }: BillingFromFields) => {
         "focus-within:!ring-offset-0",
       ],
       label: "group-data-[filled-within]:text-white",
+      errorMessage: "text-[#8b0e2e]",
     },
   };
 
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<IBilling>();
 
   return (
     <>
@@ -32,6 +38,7 @@ export const BillingFormFields = ({ disabled }: BillingFromFields) => {
         {...register("card_name")}
         placeholder="Name"
         label="Name on card"
+        errorMessage={errors.card_name?.message}
       />
       <Input
         disabled={disabled}
@@ -39,6 +46,7 @@ export const BillingFormFields = ({ disabled }: BillingFromFields) => {
         {...register("card_number")}
         placeholder="1111 2222 3333 4444"
         label="Card Number"
+        errorMessage={errors.card_number?.message}
       />
       <div className="flex gap-2">
         <Input
@@ -47,6 +55,7 @@ export const BillingFormFields = ({ disabled }: BillingFromFields) => {
           {...register("exp_date")}
           placeholder="mm/yy"
           label="Expiration date"
+          errorMessage={errors.exp_date?.message}
         />
         <Input
           disabled={disabled}
@@ -54,6 +63,7 @@ export const BillingFormFields = ({ disabled }: BillingFromFields) => {
           {...register("cvv")}
           placeholder="123"
           label="CVV"
+          errorMessage={errors.cvv?.message}
         />
       </div>
     </>
