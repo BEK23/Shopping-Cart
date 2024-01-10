@@ -30,17 +30,17 @@
     {
       "id": 0,
       "name": "MasterCard",
-      "img": "src/assets/images/mastercard.png"
+      "img": "/assets/images/mastercard.png"
     },
     {
       "id": 1,
       "name": "Visa",
-      "img": "src/assets/images/visa.png"
+      "img": "/assets/images/visa.png"
     },
     {
       "id": 3,
       "name": "RuPay",
-      "img": "src/assets/images/rupay.png"
+      "img": "/assets/images/rupay.png"
     }
   ],
   "profile": {

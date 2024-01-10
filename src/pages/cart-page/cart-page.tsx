@@ -1,6 +1,5 @@
 import RightIcon from "@assets/right-icon.svg";
-import { Button } from "@nextui-org/react";
-import { useState } from "react";
+import { Button, Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 
 import { Title } from "@/components/title";
 import { cn } from "@/lib/utils";
@@ -11,7 +10,7 @@ import { CartItems } from "./components/cart-items";
 import { Header } from "./components/header";
 
 export default function CartPage() {
-  const [open, setOpen] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const cartItems = useCartStore((state) => state.cartItems);
 
@@ -29,7 +28,7 @@ export default function CartPage() {
             <Button
               color="success"
               className="flex gap-1 text-white lg:hidden"
-              onClick={() => setOpen(true)}
+              onClick={onOpen}
             >
               Continue
               <img src={RightIcon} alt="continue" />
@@ -39,27 +38,22 @@ export default function CartPage() {
         </div>
         <div
           className={cn(
-            "z-30 absolute right-0 translate-x-full transition-all opacity-0 overflow-auto rounded-large duration-700 lg:static lg:translate-x-0 lg:opacity-100",
-            open &&
-              "opacity-100 translate-x-8 shadow-[-7px_5px_15px_7px_#00000025]",
+            "z-30 absolute right-0 translate-x-full transition-all opacity-0 overflow-auto rounded-large duration-700",
+            "lg:static lg:translate-x-0 lg:opacity-100",
           )}
         >
           <CardDetails />
         </div>
       </div>
-      <div
-        className={cn(
-          "absolute left-0 top-0 z-20 h-dvh w-full translate-x-full duration-0",
-          open && "translate-x-0",
-        )}
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        classNames={{ base: "max-w-fit !bg-transparent" }}
       >
-        <div
-          className={cn(
-            "w-full h-full bg-black opacity-0 transition-opacity duration-700",
-            open && "opacity-70",
-          )}
-        ></div>
-      </div>
+        <ModalContent>
+          <CardDetails />
+        </ModalContent>
+      </Modal>
     </>
   );
 }
