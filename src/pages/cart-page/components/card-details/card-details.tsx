@@ -1,6 +1,7 @@
 import { Card } from "@nextui-org/card";
 import { Avatar, CardBody, CardHeader } from "@nextui-org/react";
 
+import { profile } from "@/indexDB.json";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/cart.store";
 
@@ -23,7 +24,10 @@ export const CardDetails = () => {
     >
       <CardHeader>
         Card Details
-        <Avatar classNames={{ base: "w-12.5 h-12.5 rounded-lg" }}></Avatar>
+        <Avatar
+          src={profile.img}
+          classNames={{ base: "w-12.5 h-12.5 rounded-lg" }}
+        />
       </CardHeader>
       <CardBody>
         <CardTypes disabled={!subtotal} />

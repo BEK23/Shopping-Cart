@@ -57,7 +57,12 @@ export const CartItem = ({ item }: CartItemPops) => {
           </div>
         </div>
         <div className="font-medium">${item.count * item.price}</div>
-        <img src={TrashIcon} alt="delete" onClick={() => deleteItem(item.id)} />
+        <img
+          src={TrashIcon}
+          alt="delete"
+          onClick={() => deleteItem(item.id)}
+          className="cursor-pointer"
+        />
       </CardBody>
     </Card>
   );

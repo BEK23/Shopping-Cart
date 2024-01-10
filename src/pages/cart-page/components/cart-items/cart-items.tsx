@@ -7,9 +7,16 @@ export const CartItems = () => {
 
   return (
     <div className="space-y-6">
-      {cartItems.map((item) => (
-        <CartItem key={item.id} item={item} />
-      ))}
+      {cartItems.length > 0 ? (
+        cartItems.map((item) => <CartItem key={item.id} item={item} />)
+      ) : (
+        <div className="my-36 text-center text-3xl font-medium">
+          Cart is empty
+          <br />
+          <br />
+          (* ￣︿￣)
+        </div>
+      )}
     </div>
   );
 };
