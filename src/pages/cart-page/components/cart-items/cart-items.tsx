@@ -1,4 +1,5 @@
-import { ICartItem } from "../../../../types/cart.interface";
+import { ICartItem } from "@/types/cart.interface";
+
 import { CartItem } from "./cart-item";
 
 export const CartItems = () => {

@@ -1,4 +1,5 @@
-import { Title } from "../../components/title";
+import { Title } from "@/components/title";
+
 import { CardDetails } from "./components/card-details";
 import { CartItems } from "./components/cart-items";
 import { Header } from "./components/header";

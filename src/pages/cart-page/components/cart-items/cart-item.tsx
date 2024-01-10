@@ -3,8 +3,8 @@ import UpFilledIcon from "@assets/up-filled-icon.svg";
 import { Card } from "@nextui-org/card";
 import { CardBody, Image } from "@nextui-org/react";
 
-import { Title } from "../../../../components/title";
-import { ICartItem } from "../../../../types/cart.interface";
+import { Title } from "@/components/title";
+import { ICartItem } from "@/types/cart.interface";
 
 interface CartItemPops {
   item: ICartItem;
