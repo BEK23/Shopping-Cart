@@ -15,7 +15,7 @@ export const CardDetails = () => {
     <Card
       classNames={{
         base: cn(
-          "h-full max-h-[640px] w-97 bg-primary text-white p-5",
+          "h-full max-h-[640px] w-97 bg-primary text-white p-5 shadow-none",
           !subtotal && "opacity-70",
         ),
         header: "flex justify-between text-[22px] font-semibold p-0",

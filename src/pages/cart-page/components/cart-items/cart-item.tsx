@@ -18,13 +18,15 @@ export const CartItem = ({ item }: CartItemPops) => {
 
   return (
     <Card className="shadow-[0px_1px_4px_0px_#00000025]">
-      <CardBody className="flex-row items-center justify-between py-[9px] pl-2.5 pr-5">
-        <div className="flex items-center gap-4">
+      <CardBody className="flex-col items-center justify-between px-2.5 py-[9px] lg:flex-row lg:pr-5">
+        <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center">
           <div>
             <Image
               src={item.img}
               alt={item.name}
-              classNames={{ wrapper: "h-[82px] w-20" }}
+              classNames={{
+                wrapper: "h-60 lg:h-[82px] lg:w-20 !max-w-full",
+              }}
               className="h-full w-full rounded-lg object-cover"
             />
           </div>
@@ -33,36 +35,40 @@ export const CartItem = ({ item }: CartItemPops) => {
             subtitle={item.description}
             classNames={{
               wrapper: "lg:w-60 xl:w-[400px] 2xl:w-[500px]",
-              subtitle: "line-clamp-2",
+              subtitle: "line-clamp-3 lg:line-clamp-2",
             }}
           />
         </div>
-        <div className="flex gap-1.5 text-[22px]">
-          {item.count}
-          <div className="space-y-0.5">
-            <img
-              src={UpFilledIcon}
-              alt="up"
-              className="cursor-pointer"
-              onClick={() => increaseCartCount(item.id)}
-            />
-            <div className="rotate-180">
+        <div className="flex w-full flex-row items-center justify-between px-10 pt-5 lg:p-0">
+          <div className="flex gap-1.5 text-[22px]">
+            {item.count}
+            <div className="space-y-0.5">
               <img
                 src={UpFilledIcon}
-                alt="down"
+                alt="up"
                 className="cursor-pointer"
-                onClick={() => decreaseCartCount(item.id)}
+                onClick={() => increaseCartCount(item.id)}
               />
+              <div className="rotate-180">
+                <img
+                  src={UpFilledIcon}
+                  alt="down"
+                  className="cursor-pointer"
+                  onClick={() => decreaseCartCount(item.id)}
+                />
+              </div>
             </div>
           </div>
+          <div className="text-lg font-medium lg:text-xl">
+            ${item.count * item.price}
+          </div>
+          <img
+            src={TrashIcon}
+            alt="delete"
+            onClick={() => deleteItem(item.id)}
+            className="cursor-pointer"
+          />
         </div>
-        <div className="font-medium">${item.count * item.price}</div>
-        <img
-          src={TrashIcon}
-          alt="delete"
-          onClick={() => deleteItem(item.id)}
-          className="cursor-pointer"
-        />
       </CardBody>
     </Card>
   );
